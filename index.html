@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>朋友修仙救援团 · 像素版</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 外层像素边框容器：要同时有 id="app" 和 class="app" 才能吃到样式 -->
+  <div id="app" class="app">
+
+    <!-- ========== 主菜单 ========== -->
+    <section id="section-menu">
+      <h1>朋友修仙救援团 · 像素版</h1>
+      <p class="subtitle">选 3 位好友出战，救回被黑化的伙伴，一起打倒「冬天想吃肉又怕胖之神」！</p>
+
+      <button id="btn-go-select" class="btn-primary">
+        开始游戏
+      </button>
+    </section>
+
+    <!-- ========== 选人页面 ========== -->
+    <section id="section-select" class="hidden">
+      <h2>选择 3 位出战伙伴</h2>
+      <p class="subtitle">其余好友会黑化到 Boss 阵营，需要在战斗中救回。</p>
+
+      <div id="hero-list" class="hero-list"></div>
+
+      <div class="panel-footer">
+        <span id="selected-count">已选 0 / 3 人</span>
+        <div class="panel-actions">
+          <button id="btn-start-run" class="btn-primary">确认出发</button>
+          <button id="btn-back-menu" class="btn-secondary">返回主菜单</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 地图页面 ========== -->
+    <section id="section-map" class="hidden">
+      <h2>像素大地图 · 救援进度</h2>
+      <p class="subtitle">先救人再打 Boss，越多人加入队伍越稳。</p>
+
+      <div class="map-layout">
+        <!-- 左侧：当前队伍 + 私人物品 -->
+        <div class="map-team">
+          <h3>当前队伍</h3>
+          <div id="team-status"></div>
+
+          <h3>已获得的私人用品</h3>
+          <ul id="artifact-list" class="artifact-list"></ul>
+        </div>
+
+        <!-- 右侧：可挑战目标 -->
+        <div class="map-battles">
+          <h3>可挑战目标</h3>
+          <div id="battle-list"></div>
+        </div>
+      </div>
+
+      <div class="panel-footer">
+        <button id="btn-back-select" class="btn-secondary small">
+          重新选人（重开一局）
+        </button>
+      </div>
+    </section>
+
+    <!-- ========== 战斗页面 ========== -->
+    <section id="section-battle" class="hidden">
+      <div class="battle-header" id="battle-header">
+        战斗准备中…
+      </div>
+
+      <div class="battle-layout">
+        <!-- 左：敌人 / 我方 / 阵型 / 主动技 -->
+        <div class="battle-main">
+          <div class="battle-info">
+            <h3>敌方信息</h3>
+            <div id="enemy-info"></div>
+
+            <div id="enemy-intent" class="enemy-intent"></div>
+
+            <h3>我方队伍</h3>
+            <div id="ally-info"></div>
+          </div>
+
+          <div class="battle-controls">
+            <h3>阵型选择</h3>
+            <div class="formations">
+              <label>
+                <input type="radio" name="formation" value="balanced" checked>
+                均衡阵（稳扎稳打）
+              </label>
+              <label>
+                <input type="radio" name="formation" value="aggressive">
+                破阵式（输出↑ 防御↓）
+              </label>
+              <label>
+                <input type="radio" name="formation" value="defensive">
+                灵盾阵（减伤↑ 输出↓）
+              </label>
+            </div>
+
+            <h3>主动技（每人 1 次）</h3>
+            <div id="ultimate-controls" class="ult-controls"></div>
+          </div>
+
+          <div class="battle-actions">
+            <button id="btn-perform-turn" class="btn-primary">
+              执行本回合 ▶
+            </button>
+            <button id="btn-exit-battle" class="btn-secondary">
+              返回地图
+            </button>
+          </div>
+        </div>
+
+        <!-- 右：战斗日志 -->
+        <div class="battle-log-wrapper">
+          <h3>战斗日志</h3>
+          <div id="battle-log" class="battle-log"></div>
+        </div>
+      </div>
+	        <!-- 新增：战斗结算 & 分享面板 -->
+	        <div id="battle-result-panel" class="result-panel hidden">
+	          <h3>战斗结算 · 队友贡献</h3>
+	          <div id="battle-result-text" class="result-text"></div>
+	          <div class="btn-row" style="margin-top:4px;">
+	            <button id="btn-copy-share" class="btn-primary small">
+	              复制本局战报用于分享
+	            </button>
+	          </div>
+	        </div>
+    </section>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+/* =============== 基础 =============== */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Press Start 2P", "Pixel", system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei",
+    sans-serif;
+  background: radial-gradient(circle at top, #303a80 0, #141521 42%, #05060a 100%);
+  color: #fefefe;
+  image-rendering: pixelated;
+}
+
+/* 没有像素字体也不影响显示，只是兜底一下 */
+@font-face {
+  font-family: "Pixel";
+  src: local("Press Start 2P"), local("PressStart2P");
+}
+
+.app {
+  max-width: 1120px;
+  margin: 12px auto;
+  padding: 8px;
+  border: 4px solid #ffe0f3;
+  box-shadow:
+    0 0 0 4px #242032,
+    0 0 25px rgba(0, 0, 0, 0.85);
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      #1c1b2c,
+      #1c1b2c 4px,
+      #201f33 4px,
+      #201f33 8px
+    );
+}
+
+h1, h2, h3 {
+  margin: 4px 0;
+  text-shadow: 2px 2px #000;
+}
+
+.subtitle {
+  font-size: 11px;
+  color: #ffd9f7;
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* =============== 像素面板 =============== */
+
+section {
+  margin-bottom: 10px;
+}
+
+#section-menu,
+#section-select,
+#section-map,
+#section-battle {
+  border: 3px solid #ffe0f3;
+  background: #141321;
+  padding: 10px;
+  box-shadow: 0 0 0 3px #332a4b;
+}
+
+/* =============== 按钮（像素风） =============== */
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 6px 14px;
+  border-radius: 0;
+  border-width: 3px;
+  border-style: solid;
+  font-size: 11px;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 0 2px #000;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, filter 0.08s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #ff98c5, #ffc78f);
+  border-color: #fff0ff;
+  color: #301525;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+.btn-primary:active {
+  transform: translate(0, 0);
+  box-shadow: 0 0 0 2px #000;
+}
+
+.btn-secondary {
+  background: #2a2b3f;
+  border-color: #bfc6ff;
+  color: #e0e4ff;
+}
+
+.btn-secondary.small {
+  padding: 4px 10px;
+  font-size: 10px;
+}
+
+/* =============== 选人界面 =============== */
+
+.hero-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.hero-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 0;
+  border: 3px solid #ffdaf0;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      #211a34,
+      #211a34 4px,
+      #261f3b 4px,
+      #261f3b 8px
+    );
+  box-shadow: 0 0 0 2px #000;
+}
+
+.hero-card:hover {
+  filter: brightness(1.08);
+}
+
+.hero-card input[type="checkbox"] {
+  margin-top: 4px;
+}
+
+.hero-main {
+  flex: 1;
+  min-width: 0;
+  font-size: 10px;
+}
+
+.hero-name {
+  font-weight: 700;
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+.hero-tags {
+  margin-bottom: 3px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 1px 5px;
+  border-radius: 0;
+  border: 2px solid #ffd4f4;
+  background: #3a2348;
+  color: #ffe5ff;
+  font-size: 8px;
+  margin-right: 4px;
+}
+
+.tag.secondary {
+  border-color: #b8d5ff;
+  background: #243454;
+  color: #e4f0ff;
+}
+
+.hero-desc {
+  font-size: 10px;
+  color: #f5f0ff;
+  margin-bottom: 2px;
+}
+
+.hero-stat {
+  font-size: 9px;
+  color: #b6c4ff;
+}
+
+.panel-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 10px;
+}
+
+.panel-actions,
+.btn-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* =============== 地图 / 队伍信息 =============== */
+
+.map-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) 1fr;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.map-team, .map-battles {
+  background: #171727;
+  border-radius: 0;
+}
+
+#team-status {
+  font-size: 10px;
+}
+
+.team-member {
+  margin-bottom: 4px;
+}
+
+.team-member span {
+  font-size: 9px;
+}
+
+.artifact-list {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0;
+  font-size: 9px;
+}
+
+.artifact-list li {
+  margin-bottom: 2px;
+}
+
+/* 可挑战战斗列表 */
+
+#battle-list,
+#battle-target-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 10px;
+}
+
+.battle-item {
+  padding: 6px;
+  border-radius: 0;
+  border: 3px solid #ffe0f3;
+  background: #241835;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 0 2px #000;
+}
+
+.battle-item-main {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* =============== 战斗界面 =============== */
+
+.battle-header {
+  font-size: 11px;
+  margin-bottom: 6px;
+  color: #ffe9ff;
+}
+
+.battle-layout {
+  display: grid;
+  grid-template-columns: minmax(340px, 480px) minmax(260px, 1fr);
+  gap: 10px;
+}
+
+.battle-main,
+.battle-log-wrapper {
+  background: #171727;
+  border: 3px solid #ffe0f3;
+  box-shadow: 0 0 0 2px #000;
+  padding: 8px;
+}
+
+.battle-info {
+  font-size: 10px;
+  margin-bottom: 6px;
+}
+
+.enemy-intent {
+  font-size: 9px;
+  color: #ffe88b;
+  margin: 4px 0;
+}
+
+/* HP 条像素风 */
+
+.hp-bar-wrapper {
+  background: #0b0b12;
+  border: 2px solid #ffb8d8;
+  height: 10px;
+  margin-top: 2px;
+}
+
+.hp-bar {
+  height: 100%;
+  background:
+    linear-gradient(90deg, #ff8fa3 0, #ffcf8f 100%);
+}
+
+.hp-text {
+  font-size: 9px;
+  color: #fbe8ff;
+}
+
+.ally-row {
+  margin-bottom: 4px;
+}
+
+.ally-name {
+  font-weight: 600;
+}
+
+/* 阵型 & 主动技 */
+
+.battle-controls {
+  border-top: 2px dashed #3b3450;
+  padding-top: 6px;
+  margin-top: 6px;
+}
+
+.formations {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 9px;
+}
+
+.ult-controls,
+#ult-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 9px;
+  margin-bottom: 4px;
+}
+
+.ult-chip {
+  padding: 3px 7px;
+  border-radius: 0;
+  border: 2px solid #ffd4f4;
+  background: #332142;
+}
+
+.ult-chip.used {
+  opacity: 0.35;
+}
+
+/* 战斗操作区域 */
+
+.battle-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+/* 战斗日志 */
+
+.battle-log {
+  height: 320px;
+  overflow-y: auto;
+  font-size: 9px;
+  padding-right: 4px;
+  background: #0e0f18;
+  border: 2px solid #3a304f;
+}
+
+.battle-log p {
+  margin: 2px 0;
+}
+
+/* 响应式 */
+
+@media (max-width: 800px) {
+  .map-layout,
+  .battle-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .app {
+    margin: 0;
+    border-width: 3px;
+  }
+}
